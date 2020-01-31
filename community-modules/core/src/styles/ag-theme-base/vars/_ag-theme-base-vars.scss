@@ -135,7 +135,7 @@ $ag-checkbox-background-color: $ag-background-color !default;
 $ag-checkbox-border-radius: $ag-border-radius !default;
 $ag-checkbox-checked-color: $ag-foreground-color !default;
 $ag-checkbox-unchecked-color: $ag-foreground-color !default;
-$ag-checkbox-indeterminate-color: $ag-foreground-color !default;
+$ag-checkbox-indeterminate-color: $ag-checkbox-unchecked-color !default;
 
 // The main control for affecting how tightly data and UI elements are packed together.
 // All block sizes, margins and padding in the grid are defined as a multiple of $ag-grid-size,
