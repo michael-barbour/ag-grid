@@ -7,22 +7,10 @@
         }
     }
 
-    .ag-checkbox input {
-        @extend %ag-checkbox;
-    }
-
-    .ag-radio-button input {
-        @extend %radio-button;
-    }
-
     .ag-toggle-button {
         flex: none;
         width: unset;
         min-width: unset;
-        input {
-            @extend %ag-toggle-button;
-        }
-        
     }
 
     .ag-label-align-right .ag-label {
@@ -121,11 +109,6 @@
 
         color: $ag-secondary-foreground-color;
         display: block;
-    }
-
-    .ag-selection-checkbox input {
-        // TODO remove placeholder selectors and use e.g. input[type='checkbox']
-        @extend %ag-checkbox;
     }
     
     .ag-group-title-bar-icon {
@@ -366,5 +349,99 @@
     .ag-column-select-header-icon {
         cursor: pointer;
         margin: 0 $ag-grid-size;
+    }
+}
+
+@mixin ag-input-styles {
+    input[type='checkbox'] {
+        @extend %ag-checkbox;
+    }
+}
+
+// styles an <input type=checkbox> as a checkbox, using the icon font for states
+%ag-checkbox {
+    -webkit-appearance: none;
+    width: $ag-icon-size;
+    height: $ag-icon-size;
+    background: $ag-checkbox-background-color;
+    margin: 0;
+    font-family: $ag-icon-font-family;
+    font-size: $ag-icon-size;
+    line-height: $ag-icon-size;
+    
+    &:focus {
+        outline: none;
+    }
+
+    // the element creates the flashing effect when the checkbox is ticked.
+    // &::before {
+    //     content: ' ';
+    //     width: $ag-checkbox-size - 2;
+    //     height: $ag-checkbox-size - 2;
+    //     background: $ag-checkbox-background-color;
+    //     display: block;
+    //     margin-left: 0px;
+    //     margin-right: 0px;
+    //     margin-top: 0px;
+    //     visibility: hidden;
+    //     position: absolute;
+    //     transition: background-color 0.2s linear;
+    //     border-radius: $ag-checkbox-border-radius;
+    //     z-index: 2;
+    // }
+
+    &::after {
+        content: $ag-icon-checkbox-checked;
+        color: $ag-checkbox-checked-color;
+        // border-right: $ag-checkbox-check-size solid $ag-checkbox-check-color;
+        // border-bottom: $ag-checkbox-check-size solid $ag-checkbox-check-color;
+        // display: block;
+        // transform: rotate(45deg);
+        // transition: all 0.2s linear;
+        // clip-path: inset(0px 5px 0px 0px);
+        // width: $ag-checkbox-size / 3;
+        // height: $ag-checkbox-size - 6;
+        // margin-left: 4px;
+        // margin-right: 4px;
+    }
+
+    &:checked {
+        // background-color: $ag-checkbox-checked-background-color;
+        // border-color: $ag-checkbox-checked-border-color;
+    }
+
+    &:checked::after {
+        // clip-path: inset(0px 0px 0px 0px);
+    }
+
+    &:checked::before {
+        // background: transparentize($ag-checkbox-checked-background-color, 1);
+        // visibility: visible;
+    }
+
+    &:indeterminate {
+        // background-color: $ag-checkbox-indeterminate-background-color;
+        // border-color: $ag-checkbox-indeterminate-border-color;
+    }
+
+    &:indeterminate::after {
+        // clip-path: inset(0px 0px 0px 0px);
+        // transform: rotate(0deg);
+        // margin-top: 6px;
+        // margin-left: 2px;
+        // margin-right: 2px;
+        // width: 9px;
+        // border-bottom-width: 1.5px;
+        // height: 0px;
+    }
+
+    &:disabled {
+        // background-color: $ag-checkbox-disabled-background-color;
+        // border-color: $ag-checkbox-disabled-border-color;
+    }
+
+    &:checked:disabled {
+        // background-color: $ag-checkbox-disabled-background-color;
+        // border-color: $ag-checkbox-disabled-border-color;
     }
 }
