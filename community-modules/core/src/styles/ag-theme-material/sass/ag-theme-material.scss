@@ -30,21 +30,6 @@
         padding: $ag-grid-size / 2 0;
     }
 
-    .ag-radio-button {
-        input {
-            &:focus, &:checked {
-                border-color: $ag-checkbox-checked-background-color;
-            }
-            &:focus {
-                box-shadow: 0 0 2px 0.1rem transparentize($ag-checkbox-checked-background-color, 0.6);
-            }
-    
-            &:checked::after{
-                background-color: $ag-checkbox-checked-background-color;
-            }
-        }
-    }
-
     .ag-header-cell, .ag-header-group-cell {
         transition: background-color 0.5s;
     }

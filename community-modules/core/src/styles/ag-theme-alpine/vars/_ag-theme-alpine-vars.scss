@@ -24,14 +24,6 @@ $ag-disabled-foreground-color: $ag-foreground-color !default;
 $ag-input-disabled-background-color: mix($ag-border-color, $ag-background-color, 20%) !default;
 $ag-input-border-color: $ag-border-color !default;
 
-$ag-checkbox-check-color: $ag-background-color !default;
-$ag-checkbox-background-color: $ag-background-color !default;
-$ag-checkbox-checked-background-color: $ag-alpine-active-color !default;
-$ag-checkbox-indeterminate-background-color: $ag-checkbox-checked-background-color !default;
-$ag-checkbox-checked-border-color: $ag-alpine-active-color !default;
-
-$ag-toggle-button-color: $ag-alpine-active-color !default;
-
 // BORDERS
 $ag-borders: true;
 $ag-borders-side-button: false;
