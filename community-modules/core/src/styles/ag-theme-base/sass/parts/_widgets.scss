@@ -328,45 +328,55 @@
     }
 }
 
-@mixin ag-input-styles {
-    input[type='checkbox'] {
+@mixin ag-native-inputs {
+    input[type='checkbox']:not(.ag-toggle-button-input) {
         @extend %ag-checkbox;
+    }
+    input[type='checkbox'].ag-toggle-button-input {
+        @extend %ag-toggle-button;
+    }
+    input[type='radio'] {
+        @extend %ag-radio-button;
     }
 }
 
-// styles an <input type=checkbox> as a checkbox, using the icon font for states
 %ag-checkbox {
     -webkit-appearance: none;
-    width: $ag-icon-size;
-    height: $ag-icon-size;
+    width: $ag-checkbox-size;
+    height: $ag-checkbox-size;
+    font-size: $ag-checkbox-size;
+    line-height: $ag-checkbox-size;
     background-color: $ag-checkbox-background-color;
     border-radius: $ag-checkbox-border-radius;
     margin: 0;
     font-family: $ag-icon-font-family;
-    font-size: $ag-icon-size;
-    line-height: $ag-icon-size;
     display: block;
     
     &:focus {
         outline: none;
     }
 
-    // the element creates the flashing effect when the checkbox is ticked.
-    // &::before {
-    //     content: ' ';
-    //     width: $ag-checkbox-size - 2;
-    //     height: $ag-checkbox-size - 2;
-    //     background: $ag-checkbox-background-color;
-    //     display: block;
-    //     margin-left: 0px;
-    //     margin-right: 0px;
-    //     margin-top: 0px;
-    //     visibility: hidden;
-    //     position: absolute;
-    //     transition: background-color 0.2s linear;
-    //     border-radius: $ag-checkbox-border-radius;
-    //     z-index: 2;
-    // }
+    @if $ag-checkbox-click-flash {
+        &::before {
+            content: ' ';
+            position: absolute;
+            margin-top: 1px;
+            margin-left: 1px;
+            width: $ag-checkbox-size - 2px;
+            height: $ag-checkbox-size - 2px;
+            background: $ag-checkbox-background-color;
+            display: block;
+            visibility: hidden;
+            opacity: 1;
+            transition: opacity .3s;
+            border-radius: $ag-checkbox-border-radius;
+        }
+
+        &.ag-input-click-animation::before {
+            visibility: visible;
+            opacity: 0;
+        }
+    }
 
     &::after {
         content: $ag-icon-checkbox-unchecked;
@@ -382,14 +392,63 @@
         content: $ag-icon-checkbox-indeterminate;
         color: $ag-checkbox-indeterminate-color;
     }
+}
 
-    &:disabled {
-        // background-color: $ag-checkbox-disabled-background-color;
-        // border-color: $ag-checkbox-disabled-border-color;
+%ag-radio-button {
+    @extend %ag-checkbox;
+    
+    border-radius: $ag-checkbox-size;
+
+    @if $ag-checkbox-click-flash {
+        &::before {
+            border-radius: $ag-checkbox-size;
+        }
     }
 
-    &:checked:disabled {
-        // background-color: $ag-checkbox-disabled-background-color;
-        // border-color: $ag-checkbox-disabled-border-color;
+    &::after {
+        content: $ag-icon-radio-button-off;
+        color: $ag-checkbox-unchecked-color;
+    }
+
+    &:checked::after {
+        content: $ag-icon-radio-button-on;
+        color: $ag-checkbox-checked-color;
+    }
+}
+
+%ag-toggle-button {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    width: $ag-toggle-button-width;
+    height: $ag-toggle-button-height;
+    background-color: $ag-toggle-button-off-color;
+    border-radius: $ag-toggle-button-height / 2;
+    margin: 0;
+    position: relative;
+
+    &:focus {
+        box-shadow: none;
+    }
+
+    &:checked {
+        background-color: $ag-checkbox-checked-color;
+    }
+
+    &::before {
+        content: ' ';
+        position: absolute;
+        display: block;
+        box-sizing: border-box;
+        height: $ag-toggle-button-height;
+        width: $ag-toggle-button-height;
+        background: $ag-toggle-button-switch-color;
+        border-radius: $ag-toggle-button-height / 2;
+        transition: transform 100ms;
+        border: $ag-toggle-button-switch-border-width solid $ag-toggle-button-off-color;
+    }
+
+    &:checked::before {
+        transform: translateX($ag-toggle-button-width - $ag-toggle-button-height);
+        border-color: $ag-toggle-button-on-color;
     }
 }

@@ -172,15 +172,6 @@ columnSelectOpen
 columnSelectClosed
 columnSelectIndeterminate
 
-// grid checkboxes
-checkboxChecked
-checkboxUnchecked
-checkboxIndeterminate
-
-// grid radio buttons
-radioButtonOn
-radioButtonOff
-
 // when moving columns
 columnMovePin // when column is to the left, before it gets pinned
 columnMoveAdd // when adding a column

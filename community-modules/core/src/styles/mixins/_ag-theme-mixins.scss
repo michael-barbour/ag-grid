@@ -34,14 +34,6 @@
     @return map-get($valid-types, $type);
 }
 
-@mixin ag-box-shadow($color) {
-    box-shadow: 0 0 2px 0.1rem transparentize($color, 0.6);
-}
-
-@mixin ag-chrome-box-shadow {
-    box-shadow: 0 1px 4px 1px transparentize($ag-color-chrome-shadow, 0.6);
-}
-
 @mixin ag-card() {
     @include ag-grid-border(primary);
     
@@ -51,114 +43,6 @@
     padding: $ag-grid-size;
 }
 
-// %ag-halo {
-//     transition: box-shadow 0.1s ease-out;
-
-//     &:focus {
-//         border-color: $ag-checkbox-check-color;
-//         @include ag-box-shadow($ag-checkbox-check-color);
-//     }
-// }
-
-
-// %ag-toggle-button {
-//     box-sizing: border-box;
-//     -webkit-appearance: none;
-//     width: $ag-toggle-button-width;
-//     height: $ag-toggle-button-height;
-//     background-color: $ag-toggle-button-background-color;
-//     border: 1px solid $ag-checkbox-border-color;
-//     border-radius: $ag-toggle-button-height / 2;
-//     margin: 0;
-//     position: relative;
-
-//     &:focus {
-//         box-shadow: none;
-//     }
-
-//     &:checked {
-//         background-color: $ag-toggle-button-color;
-//     }
-
-//     &::before {
-//         box-sizing: border-box;
-//         height: $ag-toggle-button-height - 2;
-//         width: $ag-toggle-button-height - 2;
-//         content: ' ';
-//         background: $ag-background-color;
-//         display: inline-block;
-//         position: absolute;
-//         border-radius: $ag-toggle-button-height / 2;
-//         transition: left 100ms linear;
-//         top: 0;
-//         left: -1px;
-//         // below resets stuff from checkbox
-//         visibility: visible;
-//         border: 1px solid $ag-checkbox-border-color;
-//         padding: 0;
-//     }
-
-//     &:checked::before {
-//         left: calc(100% - #{$ag-toggle-button-height - 3});
-//     }
-
-//     &::after {
-//         margin: 0;
-//         position: absolute;
-//         left: 0;
-//         top: 0;
-//         content: none;
-//         line-height: 20px;
-//         display: block;
-//         text-align: right;
-//         padding-left: 5px;
-//         padding-right: 5px;
-//         transform: none;
-//         width: auto;
-//         height: auto;
-//         border: 0;
-//     }
-
-//     &:checked::after {
-//         text-align: left;
-//         content: ' ';
-//     }
-// }
-
-// %ag-radio-button {
-//     @extend %ag-halo;
-//     -webkit-appearance: none;
-//     border: $ag-checkbox-border-size solid $ag-checkbox-border-color;
-//     border-radius: 100%;
-//     width: $ag-checkbox-size;
-//     height: $ag-checkbox-size;
-//     margin: 0;
-//     vertical-align: middle;
-//     background: $ag-background-color;
-
-//     &::after {
-//         content: ' ';
-//         border-radius: 100%;
-//         background: $ag-checkbox-check-color;
-//         width: 0;
-//         height: 0;
-//         display: block;
-//         margin-left: $ag-checkbox-size - 8;
-//         margin-top: $ag-checkbox-size - 8;
-//         transition: all 0.08s ease-out;
-//     }
-
-//     &:checked {
-//         // border-color: $ag-color-primary;
-//         &::after {
-//             width: $ag-checkbox-size - 8;
-//             height: $ag-checkbox-size - 8;
-//             margin-left: 4px - $ag-checkbox-border-size;
-//             margin-right: 4px - $ag-checkbox-border-size;
-//             margin-top: 4px - $ag-checkbox-border-size;
-//         }
-//     }
-// }
 
 @mixin ag-icon-element($icon, $code) {
   .ag-icon-#{$icon} {

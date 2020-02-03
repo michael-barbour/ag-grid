@@ -7,6 +7,8 @@
 
     @include ag-grid-theme();
 
+    @include ag-native-inputs();
+
     .ag-filter-toolpanel-header,
     .ag-status-bar,
     .ag-header-row,
